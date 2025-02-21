@@ -1,0 +1,106 @@
+# SFS Lab 3 - Python Regex Questions
+# EC May, 2022
+# Add your answer to each of the questions
+import re
+
+
+# Q1 Import the apache log and print out the contents
+# your code here
+with open ("apache_log") as f:
+    file = f.read()
+    #print(file)
+
+# once you have answer for Q1 comment out the print statement to keep things tidy
+
+# Q2 Use regex to find any instance of the word notice?
+# your code here
+    word_notice = re.findall('notice', file)
+    for word in word_notice:
+        if word in word_notice:
+            print('the word notice exists')
+            break
+
+# Q3 Use regex to find any instance of the word error?
+# your code here
+    word_error = re.findall('error', file)
+    for word2 in word_error:
+        if word2 in word_error:
+            print('the word error exists')
+            break
+
+# Q4 Use regex to count any instance of the word notice?
+# your code here
+    count = 0
+    for word in word_notice:
+        count += 1
+    print('Number of occurrencies of the word notice: ', count)
+# Q5 Use regex to count any instance of the word error?
+# your code here
+    count2 = 0
+    for word2 in word_error:
+        count2 += 1
+    print('Number of occurrencies of the word error: ', count2)
+# Q6 Use regex to count any instance of the letter p?
+# your code here
+    letter_p = re.findall('p', file)
+    count3 = 0
+    for letter in letter_p:
+        count3 += 1
+    print('Number of occurrencies of the letter p: ', count3)
+    
+
+# Q7 Use regex to find any instance of the string jk2_init?
+# your code here
+    string = re.findall('jk2_init', file)
+    count4 = 0
+    for s in string:
+        count4 += 1
+    print('Number of occurrencies of the string jk2_init: ', count4)
+
+# Q8 Use regex to find any appearance of the number 6754?
+# your code here
+    num = re.findall('6754', file)
+    count5 = 0
+    for n in num:
+        count5 += 1
+    print('Number of occurrencies of the number 6754: ', count5)
+
+# Q9 Use regex to find any appearance of the number 6?
+# your code here
+    num2 = re.findall('6', file)
+    count6 = 0
+    for n2 in num2:
+        count6 += 1
+    print('Number of occurrencies of the number 6: ', count6)
+
+# Q10 Use regex to find any ip addresses?
+# your code here
+    ip_pattern = re.findall("(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})", file)
+    count7 = 0
+    for ip in ip_pattern:
+        print(ip)
+        
+
+# Q11 Create a script that will ask for user input, ask the user to enter a letter, then use regex to return any matches of that letter in the file?
+# your code here
+    user_input = input("Please type a letter: ")
+    input_letter = re.findall(user_input, file)
+    count8 = 0
+    for l2 in input_letter:
+        count8 += 1
+    print('Number of occurrencies of the letter: ', count8)
+
+# Q12 adapt your answer from Q11, to use a function to search the file, the function should take one parameter - the letter you are searching for?
+# your code here
+def search_letter(letter):
+    with open ("apache_log") as f:
+        file = f.read()
+        another_letter = re.findall(letter, file)
+        count9 = 0
+        for l3 in another_letter:
+            count9 += 1
+        print('Number of occurrencies of the letter: ', count9)
+        
+search_letter("h")
+
+# your code here
